@@ -1,0 +1,7 @@
+#NIVEL DE USUARIO || EMAIL || USUARIO || CONTRASEÑA || NOMBRE
+
+Moderador,test,test,test,test
+Usuario,test,test,test,test
+Moderador,admin@gmail.com,admin123,admin123,daniel
+Usuario,usuario@gmail.com,user123,user123,elias
+Usuario,gaea,gaea,123,daniel
