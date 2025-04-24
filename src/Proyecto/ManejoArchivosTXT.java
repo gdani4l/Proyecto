@@ -15,9 +15,9 @@ public class ManejoArchivosTXT {
     public ManejoArchivosTXT() 
     {
         leerArchivo(usuarios);
-        crearVer_Arch();
+        Verificar_Crear_Arch();
     }
-    public void crearVer_Arch() 
+    public void Verificar_Crear_Arch() 
     {
         File arch = new File(dirTXT);
         try {
@@ -37,10 +37,10 @@ public class ManejoArchivosTXT {
 
     public void leerArchivo(List<Usuario> lista) 
     {
-        try (BufferedReader lector = new BufferedReader(new FileReader(dirTXT))) 
+        try (BufferedReader leer = new BufferedReader(new FileReader(dirTXT))) 
         {
             String linea;
-            while ((linea = lector.readLine()) != null) 
+            while ((linea = leer.readLine()) != null) 
             {
                 String[] bloques = linea.split(",");
 
@@ -57,7 +57,7 @@ public class ManejoArchivosTXT {
             }
         } catch (IOException e) 
         {
-            System.out.println("esto no deberia pasar xd " + e.getMessage());
+            System.out.println("esto no deberia pasar" + e.getMessage());
         }
     }
 }

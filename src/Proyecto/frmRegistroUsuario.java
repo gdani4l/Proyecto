@@ -57,6 +57,7 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Crear una cuenta");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -164,36 +165,38 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
     String dirTXT = rutaProyecto + "\\src\\texto\\registro_usuarios.txt";
     
     ManejoArchivosTXT crearVeri=new ManejoArchivosTXT();
-    crearVeri.crearVer_Arch();
+    crearVeri.Verificar_Crear_Arch();
     
-    if (nombres.isEmpty() || usuario.isEmpty() || correo.isEmpty() || contrasena1.isEmpty() || contrasena2.isEmpty()) 
+    if (nombres.isEmpty() || usuario.isEmpty() || correo.isEmpty() ||
+            contrasena1.isEmpty() || contrasena2.isEmpty()) 
     {
-        JOptionPane.showMessageDialog(null, "Todos los espacios deben estar llenos", "Error de creación de cuenta",
+        JOptionPane.showMessageDialog(null, "Todos los espacios deben estar llenos",
+                "Error de creación de cuenta",
                 JOptionPane.ERROR_MESSAGE);
         return;
     }
 
-    boolean usuarioDuplicado = false;
-    boolean correoDuplicado = false;
+    boolean userDoble = false;
+    boolean emailDoble = false;
 
-    try (BufferedReader lector = new BufferedReader(new FileReader(dirTXT))) 
+    try (BufferedReader leer = new BufferedReader(new FileReader(dirTXT))) 
     {
         String linea;
-        while ((linea = lector.readLine()) != null) 
+        while ((linea = leer.readLine()) != null) 
         {
             String[] bloques = linea.split(",");
             if (bloques.length == 5) 
             {
-                String correoExistente = bloques[1];
-                String usuarioExistente = bloques[2];
+                String emailExiste = bloques[1];
+                String userExiste = bloques[2];
 
-                if (correoExistente.equals(correo)) 
+                if (emailExiste.equals(correo)) 
                 {
-                    correoDuplicado = true;
+                    emailDoble = true;
                 }
 
-                if (usuarioExistente.equals(usuario)) {
-                    usuarioDuplicado = true;
+                if (userExiste.equals(usuario)) {
+                    userDoble = true;
                 }
             }
         }
@@ -204,16 +207,17 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
         return;
     }
 
-    if (correoDuplicado) 
+    if (emailDoble) 
     {
-        JOptionPane.showMessageDialog(null, "El correo ya está registrado", "Error de creación de cuenta",
+        JOptionPane.showMessageDialog(null, "El correo ingresado ya está registrado", "Error de creación de cuenta",
                 JOptionPane.ERROR_MESSAGE);
         return;
     }
 
-    if (usuarioDuplicado) 
+    if (userDoble) 
     {
-        JOptionPane.showMessageDialog(null, "El nombre de usuario ya está registrado", "Error de creación de cuenta",
+        JOptionPane.showMessageDialog(null, "El nombre de usuario ingresado ya está registrado",
+                "Error de creación de cuenta",
                 JOptionPane.ERROR_MESSAGE);
         return;
     }

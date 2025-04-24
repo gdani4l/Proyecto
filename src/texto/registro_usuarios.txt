@@ -5,3 +5,7 @@ Usuario,test,test,test,test
 Moderador,admin@gmail.com,admin123,admin123,daniel
 Usuario,usuario@gmail.com,user123,user123,elias
 Usuario,gaea,gaea,123,daniel
+Usuario,gdani4l@gmail.com,gdani4l,gaea12,Daniel
+Usuario,alex12@gmail.com,alex12,alex12,alex
+Usuario,alex12,alex123,alex12,alex12
+Usuario,alex1212@gmail.com,alex1212,alex123,alex12

@@ -42,6 +42,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnInicioSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicio de sesión");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -179,28 +180,30 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioSalirActionPerformed
 
     private void btnInicioIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioIniciarSesionActionPerformed
-        String usuarioIngresado = txtInicioUsuario.getText();
-        String contrasenaIngresada = txtInicioContrasena.getText();
-        String tipoUsuarioIngresado = cbInicioTipoUsuario.getSelectedItem().toString();
+    String usuarioIngresado = txtInicioUsuario.getText();
+    String contrasenaIngresada = txtInicioContrasena.getText();
+    String tipoUsuarioIngresado = cbInicioTipoUsuario.getSelectedItem().toString();
 
-        ManejoArchivosTXT manejoArchivos=new ManejoArchivosTXT();
-        
-        boolean accesoPermitido = false;
-        for (Usuario user : manejoArchivos.usuarios) { 
-            if (user.getUsuario().equals(usuarioIngresado) && 
-                user.getContraseña().equals(contrasenaIngresada) && 
-                user.getTipoUsuario().equals(tipoUsuarioIngresado)) {
-                accesoPermitido = true;
-                break;
-            }
+    ManejoArchivosTXT manejoArchivos = new ManejoArchivosTXT();
+    
+    boolean logeado = false;
+
+    for (Usuario user : manejoArchivos.usuarios) { 
+        if (user.getUsuario().equals(usuarioIngresado) && 
+            user.getContrasena().equals(contrasenaIngresada) && 
+            user.getTipoUsuario().equals(tipoUsuarioIngresado)) {
+            logeado = true;
+            break;
         }
-        if (accesoPermitido) {
-            frmUsuarioUI newFrame = new frmUsuarioUI();
-            newFrame.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Credenciales incorrectas. Inténtalo nuevamente.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    }
+
+    if (logeado) {
+        frmUsuarioUI newFrame = new frmUsuarioUI();
+        newFrame.setVisible(true);
+        this.dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Los datos son incorrectos.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnInicioIniciarSesionActionPerformed
 
     private void btnInicioRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioRegistrarseActionPerformed
