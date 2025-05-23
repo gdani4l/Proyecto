@@ -33,11 +33,11 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="cbCargo" pref="161" max="32767" attributes="0"/>
-                          <Component id="btnLogin" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnRegistro" alignment="1" max="32767" attributes="0"/>
                           <Component id="txtUsuario" alignment="0" max="32767" attributes="0"/>
                           <Component id="passContrasena" alignment="0" max="32767" attributes="0"/>
                           <Component id="checkShowPass" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnLogin1" max="32767" attributes="0"/>
+                          <Component id="btnLogin" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnSalir" min="-2" pref="100" max="-2" attributes="0"/>
@@ -68,10 +68,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnSalir" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="btnLimpiar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="btnLogin1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btnLogin" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnLogin" min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="btnRegistro" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -120,12 +120,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnLogin">
+    <Component class="javax.swing.JButton" name="btnRegistro">
       <Properties>
         <Property name="text" type="java.lang.String" value="REGISTRARSE"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistroActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkShowPass">
@@ -140,10 +140,10 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="---SELECCIONAR---"/>
-            <StringItem index="1" value="CAJERO"/>
-            <StringItem index="2" value="GESTOR DE STOCK"/>
-            <StringItem index="3" value="ADMINISTRADOR"/>
+            <StringItem index="0" value="---SELECIONAR---"/>
+            <StringItem index="1" value="ADMINISTRADOR"/>
+            <StringItem index="2" value="CAJERO"/>
+            <StringItem index="3" value="GESTOR DE STOCK"/>
           </StringArray>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -152,19 +152,16 @@
           </Border>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbCargoActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnLogin1">
+    <Component class="javax.swing.JButton" name="btnLogin">
       <Properties>
         <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogin1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

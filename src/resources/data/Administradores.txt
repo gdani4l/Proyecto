@@ -1,1 +1,2 @@
 #NOMBRE || APELLIDO || EMAIL || USER || CONTRASEÑA ||DNI || CODIGO DE TRABAJADOR
+Daniel|Guerrero|gaea12@gmail.com|gdani6l|12345678|71865409|3

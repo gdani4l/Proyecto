@@ -1,7 +1,11 @@
 package packageProyecto;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class ManejoArchivosData {
@@ -28,9 +32,9 @@ public class ManejoArchivosData {
             String linea;
             while ((linea = br.readLine()) != null) {
                 if (linea.startsWith("#") || linea.trim().isEmpty()) {
-                    continue; // Saltar encabezados o líneas vacías
+                    continue;
                 }
-                String[] partes = linea.split("\\|"); // <---- CORREGIDO
+                String[] partes = linea.split("\\|");
 
                 if (partes.length < 7) {
                     continue;
@@ -38,10 +42,10 @@ public class ManejoArchivosData {
 
                 String nombre = partes[0].trim();
                 String apellido = partes[1].trim();
-                String emailTxt = partes[2].trim();   // Email
-                String userTxt = partes[3].trim();    // Usuario
-                String contrasena = partes[4].trim(); // Contraseña
-                String dniTxt = partes[5].trim();     // DNI
+                String emailTxt = partes[2].trim();
+                String userTxt = partes[3].trim();
+                String contrasena = partes[4].trim();
+                String dniTxt = partes[5].trim();
                 String codigo = partes[6].trim();
 
                 if (dniTxt.equals(String.valueOf(dni)) || emailTxt.equalsIgnoreCase(email) || userTxt.equalsIgnoreCase(usuario)) {
@@ -69,7 +73,7 @@ public class ManejoArchivosData {
 
         try {
             File file = new File(rutaDestino);
-            file.getParentFile().mkdirs(); // crea la carpeta si no existe
+            file.getParentFile().mkdirs();
             FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
 
@@ -116,14 +120,56 @@ public class ManejoArchivosData {
                             ultimoCodigo = codigo;
                         }
                     } catch (NumberFormatException e) {
-                        // ignorar líneas mal formateadas
                     }
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return ultimoCodigo;
     }
+
+    public boolean validarCredenciales(String usuario, String contrasena, String rol) {
+        String archivo = "";
+
+        switch (rol) {
+            case "CAJERO":
+                archivo = txtCajeros;
+                break;
+            case "GESTOR DE STOCK":
+                archivo = txtGestoresStock;
+                break;
+            case "ADMINISTRADOR":
+                archivo = txtAdministradores;
+                break;
+            default:
+                return false;
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (linea.startsWith("#") || linea.trim().isEmpty()) {
+                    continue;
+                }
+
+                String[] datos = linea.split("\\|");
+                if (datos.length < 5) {
+                    continue;
+                }
+                
+                String userArchivo = datos[3].trim();
+                String passArchivo = datos[4].trim();
+                
+                if (usuario.equals(userArchivo) && contrasena.equals(passArchivo)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 }
