@@ -161,21 +161,11 @@ public class frmLogin extends javax.swing.JFrame {
         }
 
         ManejoArchivosData registroUsuarios = new ManejoArchivosData();
-        boolean loginExitoso = registroUsuarios.validarCredenciales(usuario, contrasena, rol);
+        Usuario usuarioLogin = registroUsuarios.obtenerUsuario(usuario, contrasena, rol);
 
-        if (loginExitoso) {
-            System.out.println("SESIÓN INICIADA COMO: " + usuario + " - ROL: " + rol);
-            switch (rol) {
-                case "ADMINISTRADOR":
-                    new frmAdministrador().setVisible(true);
-                    break;
-                case "CAJERO":
-                    new frmCajero().setVisible(true);
-                    break;
-                case "GESTOR DE STOCK":
-                    new frmGestorStock().setVisible(true);
-                    break;
-            }
+        if (usuarioLogin != null) {
+            System.out.println("SESIÓN INICIADA COMO: " + usuarioLogin.getUsuario() + " - ROL: " + rol);
+            new frmHome(usuarioLogin).setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "La información de sesión es incorrecta");

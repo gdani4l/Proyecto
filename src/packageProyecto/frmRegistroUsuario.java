@@ -175,12 +175,13 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
             return;
         }
 
-        // Validar contraseña
+        // Condicion que valida que la contraseña tenga al menos 8 caracteres
         if (contrasena1.length() < 8) {
             JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 8 caracteres.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        
+        // Condicion que valida que las contraseñas sean iguales
         if (!contrasena1.equals(contrasena2)) {
             JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.", "Error", JOptionPane.ERROR_MESSAGE);
             return;

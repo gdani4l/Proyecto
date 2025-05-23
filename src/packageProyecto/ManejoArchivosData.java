@@ -16,6 +16,19 @@ public class ManejoArchivosData {
     String txtCajeros = direccionData + "Cajeros.txt";
     String txtGestoresStock = direccionData + "GestoresStock.txt";
 
+    private String usarArchivoPorRol(String rol) {
+        switch (rol) {
+            case "CAJERO":
+                return txtCajeros;
+            case "GESTOR DE STOCK":
+                return txtGestoresStock;
+            case "ADMINISTRADOR":
+                return txtAdministradores;
+            default:
+                return null;
+        }
+    }
+
     public boolean existeUsuario(String usuario, String email, int dni) {
         return buscarDuplicado(txtCajeros, usuario, email, dni)
                 || buscarDuplicado(txtGestoresStock, usuario, email, dni)
@@ -130,21 +143,7 @@ public class ManejoArchivosData {
     }
 
     public boolean validarCredenciales(String usuario, String contrasena, String rol) {
-        String archivo = "";
-
-        switch (rol) {
-            case "CAJERO":
-                archivo = txtCajeros;
-                break;
-            case "GESTOR DE STOCK":
-                archivo = txtGestoresStock;
-                break;
-            case "ADMINISTRADOR":
-                archivo = txtAdministradores;
-                break;
-            default:
-                return false;
-        }
+        String archivo = usarArchivoPorRol(rol);
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
@@ -157,10 +156,10 @@ public class ManejoArchivosData {
                 if (datos.length < 5) {
                     continue;
                 }
-                
+
                 String userArchivo = datos[3].trim();
                 String passArchivo = datos[4].trim();
-                
+
                 if (usuario.equals(userArchivo) && contrasena.equals(passArchivo)) {
                     return true;
                 }
@@ -172,4 +171,45 @@ public class ManejoArchivosData {
         return false;
     }
 
+    public Usuario obtenerUsuario(String usuario, String contrasena, String rol) {
+        String archivo = usarArchivoPorRol(rol);
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (linea.startsWith("#") || linea.trim().isEmpty()) {
+                    continue;
+                }
+
+                String[] datos = linea.split("\\|");
+                if (datos.length < 7) {
+                    continue;
+                }
+
+                String userArchivo = datos[3].trim();
+                String passArchivo = datos[4].trim();
+
+                if (usuario.equals(userArchivo) && contrasena.equals(passArchivo)) {
+                    String nombre = datos[0].trim();
+                    String apellido = datos[1].trim();
+                    String email = datos[2].trim();
+                    int dni = Integer.parseInt(datos[5].trim());
+                    int codigo = Integer.parseInt(datos[6].trim());
+
+                    switch (rol) {
+                        case "CAJERO":
+                            return new Cajero(nombre, apellido, email, userArchivo, passArchivo, dni, codigo);
+                        case "GESTOR DE STOCK":
+                            return new GestoresStock(nombre, apellido, email, userArchivo, passArchivo, dni, codigo);
+                        case "ADMINISTRADOR":
+                            return new Administrador(nombre, apellido, email, userArchivo, passArchivo, dni, codigo);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }
