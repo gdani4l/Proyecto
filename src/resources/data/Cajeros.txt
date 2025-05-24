@@ -1,2 +1,8 @@
 #NOMBRE || APELLIDO || EMAIL || USER || CONTRASEÑA ||DNI || CODIGO DE TRABAJADOR
-Daniel|Guerrero|danielG@gmail.com|gdani4l|12345678|71865407|1
+Luis|Diaz|luisdz@gmail.com112|luised22|12345678|43|1
+Luis|Diaz|luisdz@gmail.com1123|luised221|12345678|431|2
+Luis|Diaz|luisdz@gmail.com11231|luised2213|12345678|4312|1
+Luis|Diaz|luisdz@gmail.com112311|luised22134|12345678|43122|3
+Luis|Diaz|luisdz@|luis312|12345678|4521|4
+aaaadsa31|dasdsadsa|23132|dadqwdw|12345678|321|1
+aaaadsa31|dasdsadsa|231322|dadqwdw1|12345678|3213|8

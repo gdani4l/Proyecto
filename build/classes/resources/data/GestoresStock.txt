@@ -1,5 +1,2 @@
 #NOMBRE || APELLIDO || EMAIL || USER || CONTRASEÑA ||DNI || CODIGO DE TRABAJADOR
-Daniel|Guerrero|gaea@gmail.com|gdani5l|12345678|71865408|2
-Daniel|Guerrero|gaea12@gmail.com|gdani6l|12345678|71865409|3
-DIANA|LOPEZ|gaea12@gmail.com|CAUSA|12345678|71865409|3
-fewfdsfs|fsfsfsf|fsfs|fsfsf|12345678|113313|4
+Luis|Diaz|luisdz@gmail.com|luised|12345678|432048|1

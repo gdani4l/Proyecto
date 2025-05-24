@@ -52,9 +52,10 @@ public class ManejoArchivosData {
                 txtCajeros;
             case GestoresStock g ->
                 txtGestoresStock;
-            default -> {
-                yield null;
-            }
+            case Administrador a ->
+                txtAdministradores;
+            default ->
+                null;
         };
 
         if (rutaDestino == null) {
@@ -78,7 +79,9 @@ public class ManejoArchivosData {
     }
 
     public int generarCodigo() {
-        return Math.max(obtenerUltimoCodigo(txtCajeros), obtenerUltimoCodigo(txtGestoresStock)) + 1;
+        return Math.max(
+                Math.max(obtenerUltimoCodigo(txtCajeros), obtenerUltimoCodigo(txtGestoresStock)),
+                obtenerUltimoCodigo(txtAdministradores)) + 1;
     }
 
     private int obtenerUltimoCodigo(String rutaArchivo) {
@@ -86,6 +89,7 @@ public class ManejoArchivosData {
         if (!archivo.exists()) {
             return 0;
         }
+        System.out.println("Leyendo archivo: " + rutaArchivo);
 
         int ultimoCodigo = 0;
 
