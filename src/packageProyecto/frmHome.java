@@ -1,5 +1,6 @@
 package packageProyecto;
 
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 public class frmHome extends javax.swing.JFrame {
@@ -9,7 +10,7 @@ public class frmHome extends javax.swing.JFrame {
     public frmHome(Usuario usuario) {
         initComponents();
         this.usuarioActual = usuario;
-        cambiarUI();
+        infoSesión();
     }
 
     public frmHome() {
@@ -27,6 +28,7 @@ public class frmHome extends javax.swing.JFrame {
         btnCerrarSesion = new javax.swing.JButton();
         jLabelBienvenido = new javax.swing.JLabel();
         jLabelRol = new javax.swing.JLabel();
+        dp_fondo = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("HOME");
@@ -36,10 +38,25 @@ public class frmHome extends javax.swing.JFrame {
         jLabel1.setText("HOME");
 
         btnGestionarUsuarios.setText("GESTIONAR USUARIOS");
+        btnGestionarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarUsuariosActionPerformed(evt);
+            }
+        });
 
         btnGestionarStock.setText("GESTIONAR STOCK");
+        btnGestionarStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarStockActionPerformed(evt);
+            }
+        });
 
         btnZonaVentas.setText("ZONA DE VENTAS");
+        btnZonaVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZonaVentasActionPerformed(evt);
+            }
+        });
 
         btnCerrarSesion.setText("CERRAR SESIÓN");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -50,59 +67,76 @@ public class frmHome extends javax.swing.JFrame {
 
         jLabelBienvenido.setText("Bienvenido X,");
 
-        jLabelRol.setText("Rol: Z");
+        jLabelRol.setText("Rol: nada xq lo abriste de pepa");
+
+        dp_fondo.setBackground(new java.awt.Color(51, 153, 255));
+
+        javax.swing.GroupLayout dp_fondoLayout = new javax.swing.GroupLayout(dp_fondo);
+        dp_fondo.setLayout(dp_fondoLayout);
+        dp_fondoLayout.setHorizontalGroup(
+            dp_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        dp_fondoLayout.setVerticalGroup(
+            dp_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 479, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(336, 336, 336)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCerrarSesion)
-                .addGap(24, 24, 24))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelBienvenido)
-                        .addGap(90, 90, 90)
-                        .addComponent(jLabelRol))
-                    .addComponent(btnGestionarUsuarios))
-                .addGap(124, 124, 124)
-                .addComponent(btnGestionarStock)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
-                .addComponent(btnZonaVentas)
-                .addGap(94, 94, 94))
+                        .addGap(6, 6, 6)
+                        .addComponent(btnGestionarStock)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnZonaVentas)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnGestionarUsuarios)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
+                        .addComponent(btnCerrarSesion))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(365, 365, 365)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelBienvenido)
+                                .addGap(109, 109, 109)
+                                .addComponent(jLabelRol)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(dp_fondo)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(132, 132, 132)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGestionarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGestionarStock, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnZonaVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE)
+                    .addComponent(btnZonaVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnGestionarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dp_fondo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelBienvenido)
-                    .addComponent(jLabelRol))
-                .addContainerGap())
+                    .addComponent(jLabelRol)
+                    .addComponent(jLabelBienvenido)))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cambiarUI() {
+    private void infoSesión() {
         jLabelBienvenido.setText("Bienvenido: " + usuarioActual.getNombre() + " " + usuarioActual.getApellido());
 
         if (usuarioActual instanceof Cajero) {
@@ -122,11 +156,45 @@ public class frmHome extends javax.swing.JFrame {
         int rpta = JOptionPane.showOptionDialog(this, "¿Estas seguro que quieres cerrar sesión?", "Mensaje de confirmación",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                 null, null);
-        if (rpta == 0){
+        if (rpta == 0) {
             this.dispose();
-        new frmLogin().setVisible(true);
+            new frmLogin().setVisible(true);
         }
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private boolean estaVentanaAbierta(Class<?> clase) {
+        for (JInternalFrame frame : dp_fondo.getAllFrames()) {
+            if (frame.getClass().equals(clase)) {
+                frame.toFront();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void btnGestionarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarUsuariosActionPerformed
+        if (!estaVentanaAbierta(interGestionarUsuarios.class)) {
+            interGestionarUsuarios interUser = new interGestionarUsuarios();
+            dp_fondo.add(interUser);
+            interUser.setVisible(true);
+        }
+    }//GEN-LAST:event_btnGestionarUsuariosActionPerformed
+
+    private void btnZonaVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZonaVentasActionPerformed
+        if (!estaVentanaAbierta(interGestionarStock.class)) {
+            interVentas interVenta = new interVentas();
+            dp_fondo.add(interVenta);
+            interVenta.setVisible(true);
+        }
+    }//GEN-LAST:event_btnZonaVentasActionPerformed
+
+    private void btnGestionarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarStockActionPerformed
+        if (!estaVentanaAbierta(interGestionarStock.class)) {
+            interGestionarStock interStock = new interGestionarStock();
+            dp_fondo.add(interStock);
+            interStock.setVisible(true);
+        }
+    }//GEN-LAST:event_btnGestionarStockActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -165,6 +233,7 @@ public class frmHome extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionarStock;
     private javax.swing.JButton btnGestionarUsuarios;
     private javax.swing.JButton btnZonaVentas;
+    private javax.swing.JDesktopPane dp_fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelBienvenido;
     private javax.swing.JLabel jLabelRol;

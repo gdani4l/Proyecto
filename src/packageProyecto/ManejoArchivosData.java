@@ -1,33 +1,14 @@
 package packageProyecto;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import javax.swing.JOptionPane;
 
 public class ManejoArchivosData {
 
-    String rutaApp = System.getProperty("user.dir");
-    String direccionData = rutaApp + "\\src\\resources\\data\\";
-    String txtAdministradores = direccionData + "Administradores.txt";
-    String txtCajeros = direccionData + "Cajeros.txt";
-    String txtGestoresStock = direccionData + "GestoresStock.txt";
-
-    private String usarArchivoPorRol(String rol) {
-        switch (rol) {
-            case "CAJERO":
-                return txtCajeros;
-            case "GESTOR DE STOCK":
-                return txtGestoresStock;
-            case "ADMINISTRADOR":
-                return txtAdministradores;
-            default:
-                return null;
-        }
-    }
+    private final String direccionData = System.getProperty("user.dir") + "\\src\\resources\\data\\";
+    private final String txtAdministradores = direccionData + "Administradores.txt";
+    private final String txtCajeros = direccionData + "Cajeros.txt";
+    private final String txtGestoresStock = direccionData + "GestoresStock.txt";
 
     public boolean existeUsuario(String usuario, String email, int dni) {
         return buscarDuplicado(txtCajeros, usuario, email, dni)
@@ -47,60 +28,49 @@ public class ManejoArchivosData {
                 if (linea.startsWith("#") || linea.trim().isEmpty()) {
                     continue;
                 }
-                String[] partes = linea.split("\\|");
 
+                String[] partes = linea.split("\\|");
                 if (partes.length < 7) {
                     continue;
                 }
 
-                String nombre = partes[0].trim();
-                String apellido = partes[1].trim();
-                String emailTxt = partes[2].trim();
-                String userTxt = partes[3].trim();
-                String contrasena = partes[4].trim();
-                String dniTxt = partes[5].trim();
-                String codigo = partes[6].trim();
-
-                if (dniTxt.equals(String.valueOf(dni)) || emailTxt.equalsIgnoreCase(email) || userTxt.equalsIgnoreCase(usuario)) {
+                if (partes[5].trim().equals(String.valueOf(dni))
+                        || partes[2].trim().equalsIgnoreCase(email)
+                        || partes[3].trim().equalsIgnoreCase(usuario)) {
                     return true;
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return false;
     }
 
     public void guardarUsuario(Usuario usuario) {
-        String rutaDestino = "";
+        String rutaDestino = switch (usuario) {
+            case Cajero c ->
+                txtCajeros;
+            case GestoresStock g ->
+                txtGestoresStock;
+            default -> {
+                yield null;
+            }
+        };
 
-        if (usuario instanceof Cajero) {
-            rutaDestino = txtCajeros;
-        } else if (usuario instanceof GestoresStock) {
-            rutaDestino = txtGestoresStock;
-        } else {
-            System.out.println("No se puede registrar un administrador desde el formulario.");
+        if (rutaDestino == null) {
             return;
         }
 
-        try {
-            File file = new File(rutaDestino);
-            file.getParentFile().mkdirs();
-            FileWriter fw = new FileWriter(file, true);
-            BufferedWriter bw = new BufferedWriter(fw);
+        File archivo = new File(rutaDestino);
+        archivo.getParentFile().mkdirs();
 
-            String linea = usuario.getNombre() + "|" + usuario.getApellido() + "|" + usuario.getEmail() + "|"
-                    + usuario.getUsuario() + "|" + usuario.getContrasena() + "|"
-                    + usuario.getDni() + "|" + usuario.getCodigo();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo, true))) {
+            String linea = String.join("|",
+                    usuario.getNombre(), usuario.getApellido(), usuario.getEmail(),
+                    usuario.getUsuario(), usuario.getContrasena(),
+                    String.valueOf(usuario.getDni()), String.valueOf(usuario.getCodigo()));
             bw.write(linea);
             bw.newLine();
-
-            bw.close();
-            fw.close();
-
-            System.out.println("Usuario guardado exitosamente en: " + rutaDestino);
-
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error al guardar el usuario: " + e.getMessage());
             e.printStackTrace();
@@ -108,10 +78,7 @@ public class ManejoArchivosData {
     }
 
     public int generarCodigo() {
-        int maxCodigo = 0;
-        maxCodigo = Math.max(maxCodigo, obtenerUltimoCodigo(txtCajeros));
-        maxCodigo = Math.max(maxCodigo, obtenerUltimoCodigo(txtGestoresStock));
-        return maxCodigo + 1;
+        return Math.max(obtenerUltimoCodigo(txtCajeros), obtenerUltimoCodigo(txtGestoresStock)) + 1;
     }
 
     private int obtenerUltimoCodigo(String rutaArchivo) {
@@ -126,13 +93,13 @@ public class ManejoArchivosData {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] partes = linea.split("\\|");
-                if (partes.length > 0) {
+                if (partes.length >= 7) {
                     try {
                         int codigo = Integer.parseInt(partes[6]);
                         if (codigo > ultimoCodigo) {
                             ultimoCodigo = codigo;
                         }
-                    } catch (NumberFormatException e) {
+                    } catch (NumberFormatException ignored) {
                     }
                 }
             }
@@ -142,8 +109,24 @@ public class ManejoArchivosData {
         return ultimoCodigo;
     }
 
+    private String usarArchivoPorRol(String rol) {
+        return switch (rol) {
+            case "CAJERO" ->
+                txtCajeros;
+            case "GESTOR DE STOCK" ->
+                txtGestoresStock;
+            case "ADMINISTRADOR" ->
+                txtAdministradores;
+            default ->
+                null;
+        };
+    }
+
     public boolean validarCredenciales(String usuario, String contrasena, String rol) {
         String archivo = usarArchivoPorRol(rol);
+        if (archivo == null) {
+            return false;
+        }
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
@@ -153,26 +136,23 @@ public class ManejoArchivosData {
                 }
 
                 String[] datos = linea.split("\\|");
-                if (datos.length < 5) {
-                    continue;
-                }
-
-                String userArchivo = datos[3].trim();
-                String passArchivo = datos[4].trim();
-
-                if (usuario.equals(userArchivo) && contrasena.equals(passArchivo)) {
+                if (datos.length >= 5
+                        && usuario.equals(datos[3].trim())
+                        && contrasena.equals(datos[4].trim())) {
                     return true;
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return false;
     }
 
     public Usuario obtenerUsuario(String usuario, String contrasena, String rol) {
         String archivo = usarArchivoPorRol(rol);
+        if (archivo == null) {
+            return null;
+        }
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
@@ -186,30 +166,28 @@ public class ManejoArchivosData {
                     continue;
                 }
 
-                String userArchivo = datos[3].trim();
-                String passArchivo = datos[4].trim();
-
-                if (usuario.equals(userArchivo) && contrasena.equals(passArchivo)) {
+                if (usuario.equals(datos[3].trim()) && contrasena.equals(datos[4].trim())) {
                     String nombre = datos[0].trim();
                     String apellido = datos[1].trim();
                     String email = datos[2].trim();
                     int dni = Integer.parseInt(datos[5].trim());
                     int codigo = Integer.parseInt(datos[6].trim());
 
-                    switch (rol) {
-                        case "CAJERO":
-                            return new Cajero(nombre, apellido, email, userArchivo, passArchivo, dni, codigo);
-                        case "GESTOR DE STOCK":
-                            return new GestoresStock(nombre, apellido, email, userArchivo, passArchivo, dni, codigo);
-                        case "ADMINISTRADOR":
-                            return new Administrador(nombre, apellido, email, userArchivo, passArchivo, dni, codigo);
-                    }
+                    return switch (rol) {
+                        case "CAJERO" ->
+                            new Cajero(nombre, apellido, email, usuario, contrasena, dni, codigo);
+                        case "GESTOR DE STOCK" ->
+                            new GestoresStock(nombre, apellido, email, usuario, contrasena, dni, codigo);
+                        case "ADMINISTRADOR" ->
+                            new Administrador(nombre, apellido, email, usuario, contrasena, dni, codigo);
+                        default ->
+                            null;
+                    };
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 }

@@ -3,18 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/packageProyecto/ManejoArchivosData.java</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/packageProyecto/frmHome.java</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/packageProyecto/Producto.java</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/packageProyecto/frmLogin.java</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/packageProyecto/Administrador.java</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/packageProyecto/Cajero.java</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/packageProyecto/GestoresStock.java</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/packageProyecto/frmRegistroUsuario.java</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/resources/data/Administradores.txt</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/packageProyecto/Usuario.java</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/resources/data/Cajeros.txt</file>
-            <file>file:/C:/Users/bloqu/OneDrive/Desktop/Proyecto/v2/src/resources/data/GestoresStock.txt</file>
+            <file>file:/C:/Users/bloqu/OneDrive/Desktop/v2/src/packageProyecto/frmHome.java</file>
+            <file>file:/C:/Users/bloqu/OneDrive/Desktop/v2/src/packageProyecto/interGestionarStock.java</file>
+            <file>file:/C:/Users/bloqu/OneDrive/Desktop/v2/src/resources/data/Administradores.txt</file>
+            <file>file:/C:/Users/bloqu/OneDrive/Desktop/v2/src/packageProyecto/interGestionarUsuarios.java</file>
+            <file>file:/C:/Users/bloqu/OneDrive/Desktop/v2/src/packageProyecto/interVentas.java</file>
+            <file>file:/C:/Users/bloqu/OneDrive/Desktop/v2/src/packageProyecto/frmLogin.java</file>
+            <file>file:/C:/Users/bloqu/OneDrive/Desktop/v2/src/packageProyecto/ManejoArchivosData.java</file>
+            <file>file:/C:/Users/bloqu/OneDrive/Desktop/v2/src/resources/data/GestoresStock.txt</file>
         </group>
     </open-files>
 </project-private>
