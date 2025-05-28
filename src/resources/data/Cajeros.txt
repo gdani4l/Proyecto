@@ -1,8 +1,2 @@
-#NOMBRE || APELLIDO || EMAIL || USER || CONTRASEÑA ||DNI || CODIGO DE TRABAJADOR
-Luis|Diaz|luisdz@gmail.com112|luised22|12345678|43|1
-Luis|Diaz|luisdz@gmail.com1123|luised221|12345678|431|2
-Luis|Diaz|luisdz@gmail.com11231|luised2213|12345678|4312|1
-Luis|Diaz|luisdz@gmail.com112311|luised22134|12345678|43122|3
-Luis|Diaz|luisdz@|luis312|12345678|4521|4
-aaaadsa31|dasdsadsa|23132|dadqwdw|12345678|321|1
-aaaadsa31|dasdsadsa|231322|dadqwdw1|12345678|3213|8
+#NOMBRE || APELLIDO || EMAIL || USER || CONTRASEÑA ||DNI || CODIGO DE TRABAJADOR || Contraseña: 12345678
+Jose,Perez,JoseP@gmail.com,JoseP12,ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f,74527463,7

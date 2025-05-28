@@ -1,6 +1,6 @@
 package packageProyecto;
 
-import java.awt.Color;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
@@ -25,209 +25,134 @@ public class frmHome extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         dp_fondo = new javax.swing.JDesktopPane();
-        homeBtnSalir = new javax.swing.JPanel();
-        homeLbExitX = new javax.swing.JLabel();
         homeMenu = new javax.swing.JPanel();
-        homeBtnStocker = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        homeBtnCajero = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        homeBtnAdmin = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabelBienvenido = new javax.swing.JLabel();
-        jLabelRol = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        homeBtnLogOut = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        logOutImagen = new javax.swing.JLabel();
+        lbLogOut = new javax.swing.JLabel();
+        lbCerrar = new javax.swing.JLabel();
+        lbMinimizar = new javax.swing.JLabel();
+        lbBtnAdmin = new javax.swing.JLabel();
+        txtGesStock = new javax.swing.JLabel();
+        lbBtnStock = new javax.swing.JLabel();
+        txtVentas = new javax.swing.JLabel();
+        lbBtnVenta = new javax.swing.JLabel();
+        txtAdmin = new javax.swing.JLabel();
         homeBarraTitulo = new javax.swing.JPanel();
+        jLabelBienvenido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("HOME");
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1600, 900));
         setResizable(false);
 
-        jPanel1.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Red"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        dp_fondo.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Red"));
 
         javax.swing.GroupLayout dp_fondoLayout = new javax.swing.GroupLayout(dp_fondo);
         dp_fondo.setLayout(dp_fondoLayout);
         dp_fondoLayout.setHorizontalGroup(
             dp_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 870, Short.MAX_VALUE)
+            .addGap(0, 1440, Short.MAX_VALUE)
         );
         dp_fondoLayout.setVerticalGroup(
             dp_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 870, Short.MAX_VALUE)
         );
 
-        jPanel1.add(dp_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 870, 720));
-
-        homeBtnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        homeBtnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        homeBtnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homeBtnSalirMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                homeBtnSalirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                homeBtnSalirMouseExited(evt);
-            }
-        });
-        homeBtnSalir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        homeLbExitX.setFont(new java.awt.Font("Roboto Light", 0, 48)); // NOI18N
-        homeLbExitX.setText("X");
-        homeBtnSalir.add(homeLbExitX, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 20));
-
-        jPanel1.add(homeBtnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 20));
+        jPanel1.add(dp_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 1440, 870));
 
         homeMenu.setBackground(new java.awt.Color(0, 153, 204));
         homeMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        homeBtnStocker.setBackground(new java.awt.Color(204, 204, 255));
-        homeBtnStocker.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        homeBtnStocker.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homeBtnStockerMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                homeBtnStockerMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                homeBtnStockerMouseExited(evt);
-            }
-        });
-        homeBtnStocker.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jLabel2.setText("Gestionar stock");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        homeBtnStocker.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        homeMenu.add(homeBtnStocker, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 110, 40));
-
-        homeBtnCajero.setBackground(new java.awt.Color(204, 204, 255));
-        homeBtnCajero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        homeBtnCajero.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homeBtnCajeroMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                homeBtnCajeroMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                homeBtnCajeroMouseExited(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jLabel3.setText("Zona de venta");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout homeBtnCajeroLayout = new javax.swing.GroupLayout(homeBtnCajero);
-        homeBtnCajero.setLayout(homeBtnCajeroLayout);
-        homeBtnCajeroLayout.setHorizontalGroup(
-            homeBtnCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-            .addGroup(homeBtnCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(homeBtnCajeroLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        homeBtnCajeroLayout.setVerticalGroup(
-            homeBtnCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-            .addGroup(homeBtnCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(homeBtnCajeroLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        homeMenu.add(homeBtnCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 110, 40));
-
-        homeBtnAdmin.setBackground(new java.awt.Color(204, 204, 255));
-        homeBtnAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        homeBtnAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homeBtnAdminMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                homeBtnAdminMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                homeBtnAdminMouseExited(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jLabel4.setText("Zona admin");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout homeBtnAdminLayout = new javax.swing.GroupLayout(homeBtnAdmin);
-        homeBtnAdmin.setLayout(homeBtnAdminLayout);
-        homeBtnAdminLayout.setHorizontalGroup(
-            homeBtnAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-            .addGroup(homeBtnAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(homeBtnAdminLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel4)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        homeBtnAdminLayout.setVerticalGroup(
-            homeBtnAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-            .addGroup(homeBtnAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(homeBtnAdminLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel4)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        homeMenu.add(homeBtnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 110, 40));
-
-        jLabelBienvenido.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
-        jLabelBienvenido.setText("Bienvenido X");
-        homeMenu.add(jLabelBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
-
-        jLabelRol.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
-        jLabelRol.setText("Rol: Invitado");
-        homeMenu.add(jLabelRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-
         jLabel1.setFont(new java.awt.Font("Roboto Black", 1, 36)); // NOI18N
         jLabel1.setText("INICIO");
-        homeMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 120, -1));
+        homeMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 120, -1));
 
-        homeBtnLogOut.setBackground(new java.awt.Color(204, 204, 255));
-        homeBtnLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        homeBtnLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
+        logOutImagen.setBackground(new java.awt.Color(255, 255, 255));
+        logOutImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/frmHone_logout.png"))); // NOI18N
+        logOutImagen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logOutImagen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homeBtnLogOutMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                homeBtnLogOutMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                homeBtnLogOutMouseExited(evt);
+                logOutImagenMouseClicked(evt);
             }
         });
-        homeBtnLogOut.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        homeMenu.add(logOutImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 800, -1, -1));
 
-        jLabel5.setText("Cerrar sesión");
-        homeBtnLogOut.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        lbLogOut.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        lbLogOut.setText("Cerrar sesión");
+        lbLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbLogOutMouseClicked(evt);
+            }
+        });
+        homeMenu.add(lbLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 860, -1, -1));
 
-        homeMenu.add(homeBtnLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 710, 110, 40));
+        lbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/login_cerrar.png"))); // NOI18N
+        lbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbCerrarMouseClicked(evt);
+            }
+        });
+        homeMenu.add(lbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
 
-        jPanel1.add(homeMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 770));
+        lbMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/login_minimizar.png"))); // NOI18N
+        lbMinimizar.setToolTipText("");
+        lbMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbMinimizarMouseClicked(evt);
+            }
+        });
+        homeMenu.add(lbMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
 
-        homeBarraTitulo.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Red"));
+        lbBtnAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/frmHome_btn_admin.png"))); // NOI18N
+        lbBtnAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbBtnAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbBtnAdminMouseClicked(evt);
+            }
+        });
+        homeMenu.add(lbBtnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 100, 100));
+
+        txtGesStock.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        txtGesStock.setText("Gestión de stock");
+        txtGesStock.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeMenu.add(txtGesStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+
+        lbBtnStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/frmHome_btn_stocker.png"))); // NOI18N
+        lbBtnStock.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbBtnStock.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbBtnStockMouseClicked(evt);
+            }
+        });
+        homeMenu.add(lbBtnStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 100, 100));
+
+        txtVentas.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        txtVentas.setText("Ventas");
+        txtVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeMenu.add(txtVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
+
+        lbBtnVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/frmHome_btn_ventas.png"))); // NOI18N
+        lbBtnVenta.setText("jLabel2");
+        lbBtnVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbBtnVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbBtnVentaMouseClicked(evt);
+            }
+        });
+        homeMenu.add(lbBtnVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 100, 100));
+
+        txtAdmin.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        txtAdmin.setText("Administración");
+        txtAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeMenu.add(txtAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, -1, -1));
+
+        jPanel1.add(homeMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 900));
+
+        homeBarraTitulo.setBackground(new java.awt.Color(255, 255, 255));
         homeBarraTitulo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 homeBarraTituloMouseDragged(evt);
@@ -239,21 +164,22 @@ public class frmHome extends javax.swing.JFrame {
             }
         });
         homeBarraTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(homeBarraTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 1030, 20));
+
+        jLabelBienvenido.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        jLabelBienvenido.setText("Bienvenido X");
+        homeBarraTitulo.add(jLabelBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+
+        jPanel1.add(homeBarraTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 1600, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1025, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -264,15 +190,15 @@ public class frmHome extends javax.swing.JFrame {
         jLabelBienvenido.setText("Bienvenido: " + usuarioActual.getUsuario());
 
         if (usuarioActual instanceof Cajero) {
-            jLabelRol.setText("Rol: Cajero");
-            homeBtnStocker.setVisible(false);
-            homeBtnAdmin.setVisible(false);
+            txtGesStock.setVisible(false);
+            lbBtnStock.setVisible(false);
+            txtAdmin.setVisible(false);
+            lbBtnAdmin.setVisible(false);
         } else if (usuarioActual instanceof GestoresStock) {
-            jLabelRol.setText("Rol: Gestor de Stock");
-            homeBtnCajero.setVisible(false);
-            homeBtnAdmin.setVisible(false);
-        } else {
-            jLabelRol.setText("Rol: Administrador");
+            lbBtnVenta.setVisible(false);
+            lbBtnAdmin.setVisible(false);
+            txtAdmin.setVisible(false);
+            txtVentas.setVisible(false);
         }
     }
 
@@ -286,40 +212,6 @@ public class frmHome extends javax.swing.JFrame {
         return false;
     }
 
-    private void homeBtnLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnLogOutMouseClicked
-        int rpta = JOptionPane.showOptionDialog(this, "¿Estas seguro que quieres cerrar sesión?", "Mensaje de confirmación",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                null, null);
-        if (rpta == 0) {
-            this.dispose();
-            new frmLogin().setVisible(true);
-        }
-    }//GEN-LAST:event_homeBtnLogOutMouseClicked
-
-    private void homeBtnStockerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnStockerMouseClicked
-        if (!estaVentanaAbierta(interGestionarStock.class)) {
-            interGestionarStock interStock = new interGestionarStock();
-            dp_fondo.add(interStock);
-            interStock.setVisible(true);
-        }
-    }//GEN-LAST:event_homeBtnStockerMouseClicked
-
-    private void homeBtnCajeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnCajeroMouseClicked
-        if (!estaVentanaAbierta(interVentas.class)) {
-            interVentas interVenta = new interVentas();
-            dp_fondo.add(interVenta);
-            interVenta.setVisible(true);
-        }
-    }//GEN-LAST:event_homeBtnCajeroMouseClicked
-
-    private void homeBtnAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnAdminMouseClicked
-        if (!estaVentanaAbierta(interGestionarUsuarios.class)) {
-            interGestionarUsuarios interUser = new interGestionarUsuarios();
-            dp_fondo.add(interUser);
-            interUser.setVisible(true);
-        }
-    }//GEN-LAST:event_homeBtnAdminMouseClicked
-
     private void homeBarraTituloMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBarraTituloMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
@@ -331,51 +223,60 @@ public class frmHome extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_homeBarraTituloMousePressed
 
-    private void homeBtnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnSalirMouseEntered
-        homeBtnSalir.setBackground(Color.red);
-        homeLbExitX.setForeground(Color.white);
-    }//GEN-LAST:event_homeBtnSalirMouseEntered
+    private void logOutImagenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutImagenMouseClicked
+        int rpta = JOptionPane.showOptionDialog(this, "¿Estas seguro que quieres cerrar sesión?", "Mensaje de confirmación",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                null, null);
+        if (rpta == 0) {
+            this.dispose();
+            new frmLogin().setVisible(true);
+        }
+    }//GEN-LAST:event_logOutImagenMouseClicked
 
-    private void homeBtnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnSalirMouseExited
-        homeBtnSalir.setBackground(Color.white);
-        homeLbExitX.setForeground(Color.black);
-    }//GEN-LAST:event_homeBtnSalirMouseExited
-
-    private void homeBtnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnSalirMouseClicked
+    private void lbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCerrarMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_homeBtnSalirMouseClicked
+    }//GEN-LAST:event_lbCerrarMouseClicked
 
-    private void homeBtnStockerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnStockerMouseEntered
-        homeBtnStocker.setBackground(new Color(153, 153, 255));
-    }//GEN-LAST:event_homeBtnStockerMouseEntered
+    private void lbMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMinimizarMouseClicked
+        this.setExtendedState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_lbMinimizarMouseClicked
 
-    private void homeBtnStockerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnStockerMouseExited
-        homeBtnStocker.setBackground(new Color(204, 204, 255));
-    }//GEN-LAST:event_homeBtnStockerMouseExited
+    private void lbLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogOutMouseClicked
+        int rpta = JOptionPane.showOptionDialog(this, "¿Estas seguro que quieres cerrar sesión?", "Mensaje de confirmación",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                null, null);
+        if (rpta == 0) {
+            this.dispose();
+            new frmLogin().setVisible(true);
+        }
+    }//GEN-LAST:event_lbLogOutMouseClicked
 
-    private void homeBtnCajeroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnCajeroMouseEntered
-        homeBtnCajero.setBackground(new Color(153, 153, 255));
-    }//GEN-LAST:event_homeBtnCajeroMouseEntered
+    private void lbBtnAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBtnAdminMouseClicked
+        if (!estaVentanaAbierta(interGestionarUsuarios.class)) {
+            interGestionarUsuarios interGesUser = new interGestionarUsuarios();
+            dp_fondo.add(interGesUser);
+            interGesUser.setVisible(true);
+            interGesUser.setSize(dp_fondo.getSize());
+        }
+    }//GEN-LAST:event_lbBtnAdminMouseClicked
 
-    private void homeBtnCajeroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnCajeroMouseExited
-        homeBtnCajero.setBackground(new Color(204, 204, 255));
-    }//GEN-LAST:event_homeBtnCajeroMouseExited
+    private void lbBtnStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBtnStockMouseClicked
+        if (!estaVentanaAbierta(interGestionarStock.class)) {
+            interGestionarStock interStock = new interGestionarStock(usuarioActual);
+            dp_fondo.add(interStock);
+            interStock.setVisible(true);
+            interStock.setSize(dp_fondo.getSize());
+        }
+    }//GEN-LAST:event_lbBtnStockMouseClicked
 
-    private void homeBtnAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnAdminMouseEntered
-        homeBtnAdmin.setBackground(new Color(153, 153, 255));
-    }//GEN-LAST:event_homeBtnAdminMouseEntered
-
-    private void homeBtnAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnAdminMouseExited
-        homeBtnAdmin.setBackground(new Color(204, 204, 255));
-    }//GEN-LAST:event_homeBtnAdminMouseExited
-
-    private void homeBtnLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnLogOutMouseEntered
-        homeBtnLogOut.setBackground(new Color(153, 153, 255));
-    }//GEN-LAST:event_homeBtnLogOutMouseEntered
-
-    private void homeBtnLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnLogOutMouseExited
-        homeBtnLogOut.setBackground(new Color(204, 204, 255));
-    }//GEN-LAST:event_homeBtnLogOutMouseExited
+    private void lbBtnVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBtnVentaMouseClicked
+        if (!estaVentanaAbierta(interVentas.class)) {
+            interVentas interVenta = new interVentas();
+            dp_fondo.add(interVenta);
+            interVenta.setVisible(true);
+            interVenta.setSize(dp_fondo.getSize());
+        }
+    }//GEN-LAST:event_lbBtnVentaMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -385,7 +286,7 @@ public class frmHome extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -412,20 +313,19 @@ public class frmHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dp_fondo;
     private javax.swing.JPanel homeBarraTitulo;
-    private javax.swing.JPanel homeBtnAdmin;
-    private javax.swing.JPanel homeBtnCajero;
-    private javax.swing.JPanel homeBtnLogOut;
-    private javax.swing.JPanel homeBtnSalir;
-    private javax.swing.JPanel homeBtnStocker;
-    private javax.swing.JLabel homeLbExitX;
     private javax.swing.JPanel homeMenu;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelBienvenido;
-    private javax.swing.JLabel jLabelRol;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbBtnAdmin;
+    private javax.swing.JLabel lbBtnStock;
+    private javax.swing.JLabel lbBtnVenta;
+    private javax.swing.JLabel lbCerrar;
+    private javax.swing.JLabel lbLogOut;
+    private javax.swing.JLabel lbMinimizar;
+    private javax.swing.JLabel logOutImagen;
+    private javax.swing.JLabel txtAdmin;
+    private javax.swing.JLabel txtGesStock;
+    private javax.swing.JLabel txtVentas;
     // End of variables declaration//GEN-END:variables
 }

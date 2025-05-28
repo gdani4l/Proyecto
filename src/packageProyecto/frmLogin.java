@@ -1,6 +1,7 @@
 package packageProyecto;
 
 import java.awt.Color;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class frmLogin extends javax.swing.JFrame {
@@ -17,11 +18,11 @@ public class frmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelExit = new javax.swing.JPanel();
-        exitX = new javax.swing.JLabel();
         loginImagen = new javax.swing.JLabel();
         registroImagen = new javax.swing.JLabel();
         panelMoverVentana = new javax.swing.JPanel();
+        lbCerrar = new javax.swing.JLabel();
+        lbMinimizar = new javax.swing.JLabel();
         panelBackgroundLogin = new javax.swing.JPanel();
         checkShowPass = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
@@ -34,7 +35,7 @@ public class frmLogin extends javax.swing.JFrame {
         panelLogin = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         panelRegistro = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        pRegLbReg = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         panelBackgroundRegistro = new javax.swing.JPanel();
@@ -74,33 +75,10 @@ public class frmLogin extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelExit.setBackground(new java.awt.Color(255, 255, 255));
-        panelExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelExitMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panelExitMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelExitMouseExited(evt);
-            }
-        });
-        panelExit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        loginImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/login_imagen.png"))); // NOI18N
+        getContentPane().add(loginImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 300, -1));
 
-        exitX.setFont(new java.awt.Font("Roboto Light", 0, 48)); // NOI18N
-        exitX.setText("X");
-        exitX.setPreferredSize(new java.awt.Dimension(40, 40));
-        panelExit.add(exitX, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, -1));
-
-        getContentPane().add(panelExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, -1));
-
-        loginImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/login.fondo.png"))); // NOI18N
-        getContentPane().add(loginImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 300, 500));
-
-        registroImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/registro_imagen.jpeg"))); // NOI18N
-        registroImagen.setText("ga");
+        registroImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/registro_imagen.png"))); // NOI18N
         getContentPane().add(registroImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 300, 500));
 
         panelMoverVentana.setBackground(new java.awt.Color(255, 255, 255));
@@ -115,6 +93,26 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panelMoverVentana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/login_cerrar.png"))); // NOI18N
+        lbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbCerrarMouseClicked(evt);
+            }
+        });
+        panelMoverVentana.add(lbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        lbMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/login_minimizar.png"))); // NOI18N
+        lbMinimizar.setToolTipText("");
+        lbMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbMinimizarMouseClicked(evt);
+            }
+        });
+        panelMoverVentana.add(lbMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
+
         getContentPane().add(panelMoverVentana, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
         panelBackgroundLogin.setBackground(new java.awt.Color(255, 255, 255));
@@ -136,7 +134,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel3.setText("CONTRASEÑA");
-        panelBackgroundLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        panelBackgroundLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 110, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel4.setText("CARGO");
@@ -151,7 +149,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel5.setText("USUARIO");
-        panelBackgroundLogin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        panelBackgroundLogin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 70, -1));
 
         cbCargo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         cbCargo.setMaximumRowCount(5);
@@ -159,7 +157,7 @@ public class frmLogin extends javax.swing.JFrame {
         cbCargo.setBorder(null);
         panelBackgroundLogin.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 390, 30));
 
-        panelLogin.setBackground(new java.awt.Color(204, 204, 255));
+        panelLogin.setBackground(new java.awt.Color(0, 204, 204));
         panelLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -180,7 +178,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         panelBackgroundLogin.add(panelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 120, 40));
 
-        panelRegistro.setBackground(new java.awt.Color(204, 204, 255));
+        panelRegistro.setBackground(new java.awt.Color(0, 204, 204));
         panelRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,9 +193,9 @@ public class frmLogin extends javax.swing.JFrame {
         });
         panelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jLabel9.setText("REGISTRARSE");
-        panelRegistro.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        pRegLbReg.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        pRegLbReg.setText("REGISTRARSE");
+        panelRegistro.add(pRegLbReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         panelBackgroundLogin.add(panelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 120, 40));
 
@@ -309,7 +307,7 @@ public class frmLogin extends javax.swing.JFrame {
         });
         panelBackgroundRegistro.add(checkRegShowPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 160, -1));
 
-        panelBtnRegCrearCuenta.setBackground(new java.awt.Color(204, 204, 255));
+        panelBtnRegCrearCuenta.setBackground(new java.awt.Color(0, 204, 204));
         panelBtnRegCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBtnRegCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -330,7 +328,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         panelBackgroundRegistro.add(panelBtnRegCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 110, 40));
 
-        panelBtnRegRegresar.setBackground(new java.awt.Color(204, 204, 255));
+        panelBtnRegRegresar.setBackground(new java.awt.Color(0, 204, 204));
         panelBtnRegRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBtnRegRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -387,7 +385,7 @@ public class frmLogin extends javax.swing.JFrame {
             return;
         }
 
-        ManejoArchivosData registroUsuarios = new ManejoArchivosData();
+        ManejoArchivosUsuarios registroUsuarios = new ManejoArchivosUsuarios();
         Usuario usuarioLogin = registroUsuarios.obtenerUsuario(usuario, contrasena, rol);
 
         if (usuarioLogin != null) {
@@ -407,17 +405,10 @@ public class frmLogin extends javax.swing.JFrame {
         loginImagen.setVisible(false);
         panelBackgroundRegistro.setVisible(true);
         registroImagen.setVisible(true);
+        txtUsuario.setText("");
+        passContrasena.setText("");
+        checkShowPass.setSelected(false);
     }//GEN-LAST:event_panelRegistroMouseClicked
-
-    private void panelExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelExitMouseEntered
-        panelExit.setBackground(Color.red);
-        exitX.setForeground(Color.white);
-    }//GEN-LAST:event_panelExitMouseEntered
-
-    private void panelExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelExitMouseExited
-        panelExit.setBackground(Color.white);
-        exitX.setForeground(Color.black);
-    }//GEN-LAST:event_panelExitMouseExited
 
     private void panelMoverVentanaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMoverVentanaMousePressed
         xMouse = evt.getX();
@@ -430,40 +421,45 @@ public class frmLogin extends javax.swing.JFrame {
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_panelMoverVentanaMouseDragged
 
-    private void panelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelExitMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_panelExitMouseClicked
-
     private void panelLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLoginMouseEntered
-        panelLogin.setBackground(new Color(153, 153, 255));
+        panelLogin.setBackground(new Color(0, 124, 124));
     }//GEN-LAST:event_panelLoginMouseEntered
 
     private void panelLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLoginMouseExited
-        panelLogin.setBackground(new Color(204, 204, 255));
+        panelLogin.setBackground(new Color(0, 204, 204));
     }//GEN-LAST:event_panelLoginMouseExited
 
     private void panelRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegistroMouseEntered
-        panelRegistro.setBackground(new Color(153, 153, 255));
+        panelRegistro.setBackground(new Color(0, 124, 124));
     }//GEN-LAST:event_panelRegistroMouseEntered
 
     private void panelRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegistroMouseExited
-        panelRegistro.setBackground(new Color(204, 204, 255));
+        panelRegistro.setBackground(new Color(0, 204, 204));
     }//GEN-LAST:event_panelRegistroMouseExited
 
     private void checkRegShowPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRegShowPassActionPerformed
-        if (checkShowPass.isSelected()) {
-        passRegContrasena1.setEchoChar((char) 0);
-        passRegContrasena2.setEchoChar((char) 0);
-    } else {
-        passRegContrasena1.setEchoChar('*');
-        passRegContrasena2.setEchoChar('*');
-    }
+        if (checkRegShowPass.isSelected()) {
+            passRegContrasena1.setEchoChar((char) 0);
+            passRegContrasena2.setEchoChar((char) 0);
+        } else {
+            passRegContrasena1.setEchoChar('*');
+            passRegContrasena2.setEchoChar('*');
+        }
     }//GEN-LAST:event_checkRegShowPassActionPerformed
 
     private void panelBtnRegRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBtnRegRegresarMouseClicked
         panelBackgroundRegistro.setVisible(false);
         panelBackgroundLogin.setVisible(true);
         loginImagen.setVisible(true);
+        txtRegApellidos.setText("");
+        txtRegDNI.setText("");
+        txtRegEmail.setText("");
+        txtRegNombres.setText("");
+        txtRegUsuario.setText("");
+        passRegContrasena1.setText("");
+        passRegContrasena2.setText("");
+        cbRegCargo.setSelectedIndex(0);
+        checkRegShowPass.setSelected(false);
     }//GEN-LAST:event_panelBtnRegRegresarMouseClicked
 
     private void panelBtnRegCrearCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBtnRegCrearCuentaMouseClicked
@@ -490,7 +486,7 @@ public class frmLogin extends javax.swing.JFrame {
             return;
         }
 
-        ManejoArchivosData manejador = new ManejoArchivosData();
+        ManejoArchivosUsuarios manejador = new ManejoArchivosUsuarios();
         if (manejador.existeUsuario(user, email, dni)) {
             JOptionPane.showMessageDialog(this, "Ya existe un usuario con el mismo DNI, Email o Nombre de Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -511,14 +507,15 @@ public class frmLogin extends javax.swing.JFrame {
         // Crear usuario según el cargo
         Usuario nuevoUsuario = null;
         int codigoTrabajador = manejador.generarCodigo();
+        String hashContrasena = Cifrar.cifrarContrasena(contrasena1);
 
-        if (cargo.equals("CAJERO")) {
-            nuevoUsuario = new Cajero(nombre, apellido, email, user, contrasena1, dni, codigoTrabajador);
-
-        } else if (cargo.equals("GESTOR DE STOCK")) {
-            nuevoUsuario = new GestoresStock(nombre, apellido, email, user, contrasena1, dni, codigoTrabajador);
-        } else {
-            JOptionPane.showMessageDialog(this, "Debes especificar un cargo", "Error", JOptionPane.ERROR_MESSAGE);
+        switch (cargo) {
+            case "CAJERO" ->
+                nuevoUsuario = new Cajero(nombre, apellido, email, user, hashContrasena, dni, codigoTrabajador);
+            case "GESTOR DE STOCK" ->
+                nuevoUsuario = new GestoresStock(nombre, apellido, email, user, hashContrasena, dni, codigoTrabajador);
+            default ->
+                JOptionPane.showMessageDialog(this, "Debes especificar un cargo", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
         // Guardar usuario
@@ -529,20 +526,28 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_panelBtnRegCrearCuentaMouseClicked
 
     private void panelBtnRegCrearCuentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBtnRegCrearCuentaMouseEntered
-        panelBtnRegCrearCuenta.setBackground(new Color(153, 153, 255));
+        panelBtnRegCrearCuenta.setBackground(new Color(0, 124, 124));
     }//GEN-LAST:event_panelBtnRegCrearCuentaMouseEntered
 
     private void panelBtnRegCrearCuentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBtnRegCrearCuentaMouseExited
-        panelBtnRegCrearCuenta.setBackground(new Color(204, 204, 255));
+        panelBtnRegCrearCuenta.setBackground(new Color(0, 204, 204));
     }//GEN-LAST:event_panelBtnRegCrearCuentaMouseExited
 
     private void panelBtnRegRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBtnRegRegresarMouseEntered
-        panelBtnRegRegresar.setBackground(new Color(153, 153, 255));
+        panelBtnRegRegresar.setBackground(new Color(0, 124, 124));
     }//GEN-LAST:event_panelBtnRegRegresarMouseEntered
 
     private void panelBtnRegRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBtnRegRegresarMouseExited
-        panelBtnRegRegresar.setBackground(new Color(204, 204, 255));
+        panelBtnRegRegresar.setBackground(new Color(0, 204, 204));
     }//GEN-LAST:event_panelBtnRegRegresarMouseExited
+
+    private void lbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCerrarMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lbCerrarMouseClicked
+
+    private void lbMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMinimizarMouseClicked
+        this.setExtendedState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_lbMinimizarMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -581,7 +586,6 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbRegCargo;
     private javax.swing.JCheckBox checkRegShowPass;
     private javax.swing.JCheckBox checkShowPass;
-    private javax.swing.JLabel exitX;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -598,7 +602,6 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
@@ -608,12 +611,14 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JLabel lbCerrar;
+    private javax.swing.JLabel lbMinimizar;
     private javax.swing.JLabel loginImagen;
+    private javax.swing.JLabel pRegLbReg;
     private javax.swing.JPanel panelBackgroundLogin;
     private javax.swing.JPanel panelBackgroundRegistro;
     private javax.swing.JPanel panelBtnRegCrearCuenta;
     private javax.swing.JPanel panelBtnRegRegresar;
-    private javax.swing.JPanel panelExit;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelMoverVentana;
     private javax.swing.JPanel panelRegistro;

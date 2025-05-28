@@ -1,9 +1,8 @@
 package packageProyecto;
 
 import java.io.*;
-import javax.swing.JOptionPane;
 
-public class ManejoArchivosData {
+public class ManejoArchivosUsuarios {
 
     private final String direccionData = System.getProperty("user.dir") + "\\src\\resources\\data\\";
     private final String txtAdministradores = direccionData + "Administradores.txt";
@@ -29,7 +28,7 @@ public class ManejoArchivosData {
                     continue;
                 }
 
-                String[] partes = linea.split("\\|");
+                String[] partes = linea.split(",");
                 if (partes.length < 7) {
                     continue;
                 }
@@ -66,37 +65,35 @@ public class ManejoArchivosData {
         archivo.getParentFile().mkdirs();
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo, true))) {
-            String linea = String.join("|",
+            String linea = String.join(",",
                     usuario.getNombre(), usuario.getApellido(), usuario.getEmail(),
                     usuario.getUsuario(), usuario.getContrasena(),
                     String.valueOf(usuario.getDni()), String.valueOf(usuario.getCodigo()));
             bw.write(linea);
             bw.newLine();
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar el usuario: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     public int generarCodigo() {
         return Math.max(
-                Math.max(obtenerUltimoCodigo(txtCajeros), obtenerUltimoCodigo(txtGestoresStock)),
-                obtenerUltimoCodigo(txtAdministradores)) + 1;
+                Math.max(codigoMaximo(txtCajeros), codigoMaximo(txtGestoresStock)),
+                codigoMaximo(txtAdministradores)) + 1;
     }
 
-    private int obtenerUltimoCodigo(String rutaArchivo) {
+    private int codigoMaximo(String rutaArchivo) {
         File archivo = new File(rutaArchivo);
         if (!archivo.exists()) {
             return 0;
         }
-        System.out.println("Leyendo archivo: " + rutaArchivo);
 
         int ultimoCodigo = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split("\\|");
+                String[] partes = linea.split(",");
                 if (partes.length >= 7) {
                     try {
                         int codigo = Integer.parseInt(partes[6]);
@@ -113,7 +110,7 @@ public class ManejoArchivosData {
         return ultimoCodigo;
     }
 
-    private String usarArchivoPorRol(String rol) {
+    private String usarArchivoxRol(String rol) {
         return switch (rol) {
             case "CAJERO" ->
                 txtCajeros;
@@ -126,34 +123,8 @@ public class ManejoArchivosData {
         };
     }
 
-    public boolean validarCredenciales(String usuario, String contrasena, String rol) {
-        String archivo = usarArchivoPorRol(rol);
-        if (archivo == null) {
-            return false;
-        }
-
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                if (linea.startsWith("#") || linea.trim().isEmpty()) {
-                    continue;
-                }
-
-                String[] datos = linea.split("\\|");
-                if (datos.length >= 5
-                        && usuario.equals(datos[3].trim())
-                        && contrasena.equals(datos[4].trim())) {
-                    return true;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
     public Usuario obtenerUsuario(String usuario, String contrasena, String rol) {
-        String archivo = usarArchivoPorRol(rol);
+        String archivo = usarArchivoxRol(rol);
         if (archivo == null) {
             return null;
         }
@@ -165,12 +136,12 @@ public class ManejoArchivosData {
                     continue;
                 }
 
-                String[] datos = linea.split("\\|");
+                String[] datos = linea.split(",");
                 if (datos.length < 7) {
                     continue;
                 }
 
-                if (usuario.equals(datos[3].trim()) && contrasena.equals(datos[4].trim())) {
+                if (usuario.equals(datos[3].trim()) && Cifrar.verificar(contrasena, datos[4].trim())) {
                     String nombre = datos[0].trim();
                     String apellido = datos[1].trim();
                     String email = datos[2].trim();
