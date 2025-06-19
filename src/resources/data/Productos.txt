@@ -1,0 +1,9 @@
+Hogar,  Martillo,  15.0,  200,  P1750037927765
+Herramientas,  Taladro,  350.0,  50,  P1750037927766
+Construcción,  Cemento,  40.0,138,  P1750037927767
+Plomería,  Tubería PVC,  12.5,  200,  P1750037927769
+Seguridad,  Casco de protección,  45.0,  75,  P1750037927770
+Pinturas,  Pintura acrílica,  80.0,109,  P1750037927771
+Adhesivos,  Silicona,  18.0,  250,  P1750037927772
+Jardinería,  Tijeras de podar,  65.0,  60,  P1750037927773
+Ferretería,  Cerradura de seguridad,  120.0,17,  P1750037927774
